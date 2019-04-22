@@ -1,4 +1,4 @@
-# azure
+# Azure + Office 365 y subida masiva
 Ejemplos y configuración de Azure
 
 El siguiente repositorio está creado para ayudar a la comunidad en el uso de Azure con Office 365, 
