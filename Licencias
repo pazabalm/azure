@@ -1,0 +1,63 @@
+AL MOMENTO DE SUSCRIBIR EL CONVENIO CON MICROSOFT SE ENTREGA EL PACK DE LICENCIAS QUE SE ARRIENDAN.
+Es necesario tener el nombre correcto que se insertará en la subida masiva, de lo contrario podemos asignar licencias 
+que no sean utiles que luego deben ser cambiadas.
+
+
+VER LA LICENCIA *******************************************************************************
+Get-MsolUser -UserPrincipalName pablxxx@xxxx.cl | Select-Object -ExpandProperty Licenses | Select-Object -ExpandProperty ServiceStatus
+
+
+TODAS LAS LICENCIAS QUE TENEMOS
+Get-AzureADSubscribedSku | Select SkuPartNumber
+
+SkuPartNumber
+-------------
+EXCHANGESTANDARD_STUDENT
+MEE_FACULTY
+ENTERPRISEPACKPLUS_FACULTY
+ENTERPRISEPACKPLUS_STUDENT
+STANDARDWOFFPACK_STUDENT
+STANDARDWOFFPACK_IW_STUDENT
+FLOW_FREE
+POWER_BI_STANDARD
+PROJECTPROFESSIONAL_FACULTY
+WIN10_ENT_A3_FAC
+EMS
+WIN10_ENT_A3_STU
+OFFICESUBSCRIPTION_STUDENT
+MEE_STUDENT
+VISIOCLIENT_FACULTY
+
+
+Get-AzureADSubscribedSku | Select -Property Sku*,ConsumedUnits -ExpandProperty PrepaidUnits
+
+SkuId         : ad2fe44a-915d-4e2b-ade1-6766d50a9d9c
+SkuPartNumber : EXCHANGESTANDARD_STUDENT
+ConsumedUnits : 9603
+Enabled       : 19242
+Suspended     : 0
+Warning       : 0
+
+SkuId         : 984df360-9a74-4647-8cf8-696749f6247a
+SkuPartNumber : MEE_FACULTY
+ConsumedUnits : 0
+Enabled       : 333
+Suspended     : 0
+Warning       : 0
+
+
+Ver productos/licencias detalladas por pack
+
+$allSKUs=Get-AzureADSubscribedSku
+$licArray = @()
+for($i = 0; $i -lt $allSKUs.Count; $i++)
+{
+$licArray += "Service Plan: " + $allSKUs[$i].SkuPartNumber
+$licArray +=  Get-AzureADSubscribedSku -ObjectID $allSKUs[$i].ObjectID | Select -ExpandProperty ServicePlans
+$licArray +=  ""
+}
+$licArray
+
+
+// LICENCIA QUE POSEE UN USUARIO
+Get-MsolUser -UserPrincipalName "pruexxx@xxxxx.cl" | Format-List DisplayName,Licenses
