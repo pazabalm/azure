@@ -1,0 +1,3 @@
+Es importante deshabilitar la ejecución de script externos una vez que finalicemos el trabajo con power shell.
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
