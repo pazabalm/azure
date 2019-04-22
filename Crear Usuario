@@ -1,0 +1,5 @@
+SCRIPT PARA CREAR UN USUARIO
+
+$PasswordProfile=New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+$PasswordProfile.Password="3Rv0y1q39/chsy"
+New-AzureADUser -DisplayName "Caleb Sills2" -GivenName "Caleb2" -SurName "Sills2" -UserPrincipalName hector61@xxxx.cl -UsageLocation US -MailNickName calebs -PasswordProfile $PasswordProfile -AccountEnabled $true
