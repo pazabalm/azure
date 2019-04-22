@@ -1,0 +1,15 @@
+// Habilitar script externos
+Escriba el siguiente comando después de abrir PowerShell como administrador:
+Get-ExecutionPolicy
+
+Si los resultados dicen algo que no sea RemoteSigned, ejecute este comando:
+Set-ExecutionPolicy RemoteSigned
+
+Eso debería permitir que su computadora conecte PowerShell a Office 365. 
+Revise este artículo de TechNet para obtener más información sobre la solución de problemas: 
+http://technet.microsoft.com/en-us/library/cc952756%28EXCHSRVCS.149%29 .aspx
+
+
+// Es importante deshabilitar la ejecución de script externos una vez que finalicemos el trabajo con power shell.
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
