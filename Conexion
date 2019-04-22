@@ -9,3 +9,12 @@ pedirá usuario y contraseña: XXXX@DDD.CL y clave XXXXXX
 
 Connect-MsolService -Credential $UserCredential
 Connect-MsolService
+
+
+Si todo está ok, debe aparecer algo similar a:
+
+
+Account          Environment   TenantId                               TenantDomain     AccountType
+-------          -----------   --------                               ------------     -----------
+ddddd@xxxxx.cl    AzureCloud   7439199c-3b4e-4deb-a6e3-466ade3dc821   xxxxx.cl         User
+
