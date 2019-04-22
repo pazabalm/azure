@@ -1,4 +1,4 @@
-CONEXION CON AZURE *********************************************************************
+# CONEXION CON AZURE *********************************************************************
 en la primera conexión de un equipo local hay que instalar los siguientes paquetes
 
 Install-Module -Name AzureAD
