@@ -1,0 +1,2 @@
+Import-Csv -Path "c:\Correos_genericos_2019.csv" -delimiter ";" | foreach {	New-MsolUser -DisplayName $_.DisplayName -FirstName $_.FirstName -LastName $_.LastName -UserPrincipalName $_.UserPrincipalName -ImmutableId $_.EmployeeID -Title $_.EmployeeID  -City $_.City -PhoneNumber $_.TelephoneNumber -UsageLocation $_.UsageLocation -State $_.State -Office $_.Office -Password $_.Password -LicenseAssignment "uacmail:ENTERPRISEPACKPLUS_STUDENT" -Department $_.Department } | Export-Csv -Path "C:\ejemplo\Salida_correos.csv"
+
