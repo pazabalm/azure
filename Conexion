@@ -1,0 +1,11 @@
+CONEXION CON AZURE *********************************************************************
+en la primera conexión de un equipo local hay que instalar los siguientes paquetes
+
+Install-Module -Name AzureAD
+Install-Module MSOnline
+
+$UserCredential = Get-Credential
+pedirá usuario y contraseña: XXXX@DDD.CL y clave XXXXXX
+
+Connect-MsolService -Credential $UserCredential
+Connect-MsolService
