@@ -1,0 +1,19 @@
+SELECT 
+MAIL_INST as UserPrincipalName,
+nombre as FirstName,
+paterno+' '+MATERNO as LastName,
+--S.DESCRIPCION AS SEDE,
+nombre+' '+paterno+' '+materno as DisplayName,
+c.CODCLI+'-'+DIG as EmployeeID,
+'Uac'+SUBSTRING(c.CODCLI, 1,4)+'%' as Password,
+'CL' as UsageLocation,
+CA.CODCARR AS Department,
+substring(c.CIUPROC,1,10) as City,
+isnull(C.CELULAR,0) as TelephoneNumber,
+'Alumno' as State,
+a.codcli as Title
+into #AZURE_2019
+FROM MT_ALUMNO A INNER JOIN MT_CLIENT C ON A.RUT=C.CODCLI INNER JOIN MT_CARRER CA ON CA.CODCARR=A.CODCARPR INNER JOIN MT_TIPOCARR T ON T.TIPOCARR=CA.TIPOCARR
+INNER JOIN RA_SEDE S ON S.CODSEDE=CA.SEDE
+WHERE ANO_MAT=2019 
+AND ESTACAD IN ('VIGENTE','EGRESADO')
